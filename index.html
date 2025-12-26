@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEENZORA - Gadgets & Toys Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #1e3a8a, #4c1d95); /* Original dark blue-purple gradient */
+            background: linear-gradient(to bottom right, #1e3a8a, #4c1d95);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Header */
         header {
             padding: 20px 40px;
             display: flex;
@@ -23,20 +23,38 @@
             align-items: center;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
+        .heading-box {
+            background: linear-gradient(135deg, #f6f6f6, #e0e0e0);
+            padding: 30px 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        .arrow {
-            font-size: 2.5em;
-            color: #ffd700;
-            margin-right: 10px;
+        .heading-box h1 {
+            margin: 0;
+            font-size: 68px;
+            font-weight: 900;
+            line-height: 1;
         }
 
-        .site-title {
-            font-size: 3em;
-            font-weight: bold;
+        .teen {
+            color: #1e5eff;
+        }
+
+        .zora {
+            color: #f6b300;
+            display: inline-block;
+            position: relative;
+            top: 12px;
+            font-size: 74px;
+        }
+
+        .heading-box p {
+            margin: 15px 0 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
         }
 
         nav {
@@ -45,26 +63,37 @@
         }
 
         nav a {
-            color: white;
+            color: #000000;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em;
-            padding: 10px 20px;
-            transition: color 0.3s;
+            padding: 15px 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            width: 140px;
+            text-align: center;
         }
+
+        nav a.home { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        nav a.store { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        nav a.contact { background: linear-gradient(135deg, #fa709a, #fee140); }
+        nav a.about { background: linear-gradient(135deg, #a8edea, #fed6e3); }
 
         nav a:hover {
-            color: #ffd700;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
 
-        /* Hero Section - Updated with your latest clean photo */
         .hero {
             position: relative;
-            padding: 100px 40px 80px;
+            padding: 120px 40px 100px;
             min-height: 80vh;
             display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .hero-img {
@@ -74,72 +103,121 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: -2;
+            opacity: 0.85;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(30,58,138,0.8), rgba(76,29,149,0.6));
             z-index: -1;
-            opacity: 0.9; /* Slight opacity for text readability */
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
+        .tagline-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 50px 80px;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            max-width: 900px;
+            margin-bottom: 50px;
         }
 
-        .hero h1 {
-            font-size: 5em;
-            margin: 0 0 30px 0;
-            line-height: 1.1;
+        .tagline-box h1 {
+            font-size: 4.8em;
+            margin: 0 0 30px;
+            line-height: 1.2;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+            font-weight: 900;
         }
 
-        .hero p {
-            font-size: 1.7em;
-            margin: 40px 0;
-            line-height: 1.4;
+        .tagline-box p {
+            font-size: 2em;
+            margin: 0;
+            line-height: 1.5;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+            font-weight: 500;
         }
 
         .chat-btn {
             background-color: white;
             color: #1e3a8a;
-            padding: 18px 50px;
+            padding: 20px 60px;
             border-radius: 50px;
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             transition: transform 0.3s;
         }
 
         .chat-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .contact-info {
-            margin-top: 60px;
-            font-size: 1.3em;
+            margin-top: 80px;
+            font-size: 1.4em;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .contact-info p {
-            margin: 15px 0;
+        .contact-item {
             display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .contact-info p::before {
-            content: '●';
+        .contact-item i {
+            font-size: 1.8em;
             color: #ffd700;
-            margin-right: 15px;
-            font-size: 1.6em;
         }
 
-        /* Store Section */
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #ffd700;
+        }
+
+        /* Sophisticated "Our Store" section title */
         #store {
-            padding: 100px 40px;
+            padding: 120px 40px 80px;
             text-align: center;
         }
 
         #store h2 {
-            font-size: 3.5em;
-            margin-bottom: 60px;
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 80px;
+            background: linear-gradient(to right, #ffd700, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        #store h2::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 5px;
+            background: linear-gradient(to right, transparent, #ffd700, transparent);
+            border-radius: 5px;
         }
 
         .products-grid {
@@ -156,24 +234,55 @@
             padding: 35px;
             border-radius: 25px;
             transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .product:hover {
             transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .product img {
             width: 100%;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .product h3 {
             font-size: 1.8em;
-            margin: 20px 0;
+            margin: 20px 0 10px;
         }
 
-        /* Other Sections */
+        .product p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        /* Order on WhatsApp button for each product */
+        .order-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+        }
+
+        .order-btn i {
+            margin-right: 10px;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.05);
+            background-color: #128C7E;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.6);
+        }
+
         section {
             padding: 80px 40px;
             text-align: center;
@@ -184,7 +293,6 @@
             margin-bottom: 40px;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 50px;
@@ -192,7 +300,6 @@
             font-size: 1.1em;
         }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -200,86 +307,72 @@
                 padding: 20px;
             }
 
-            .header-left {
-                margin-bottom: 20px;
+            .heading-box {
+                padding: 25px 20px;
             }
 
-            .arrow {
-                font-size: 2em;
+            .heading-box h1 {
+                font-size: 48px;
             }
 
-            .site-title {
-                font-size: 2.4em;
+            .zora {
+                font-size: 52px;
+                top: 6px;
+            }
+
+            .heading-box p {
+                font-size: 16px;
             }
 
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 15px;
+                margin-top: 20px;
             }
 
             nav a {
+                width: 120px;
                 font-size: 1.1em;
-                padding: 10px 15px;
+                padding: 12px 20px;
             }
 
             .hero {
-                padding: 60px 20px;
-                align-items: center;
-                text-align: center;
-                min-height: auto;
+                padding: 80px 20px;
             }
 
-            .hero-content {
-                max-width: 100%;
+            .tagline-box {
+                padding: 40px 30px;
             }
 
-            .hero h1 {
-                font-size: 3.2em;
+            .tagline-box h1 {
+                font-size: 3em;
             }
 
-            .hero p {
-                font-size: 1.4em;
-                margin: 30px 0;
+            .tagline-box p {
+                font-size: 1.5em;
             }
 
             .chat-btn {
-                padding: 16px 40px;
-                font-size: 1.4em;
+                padding: 18px 50px;
+                font-size: 1.5em;
             }
 
             .contact-info {
-                margin-top: 40px;
                 font-size: 1.2em;
+                gap: 20px;
             }
 
-            .contact-info p {
-                justify-content: center;
-            }
-
-            #store {
-                padding: 60px 20px;
+            .contact-item i {
+                font-size: 1.6em;
             }
 
             #store h2 {
-                font-size: 2.6em;
+                font-size: 3.5em;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-
-            section h2 {
-                font-size: 2.4em;
-            }
-
-            footer {
-                padding: 40px 20px;
+            #store h2::after {
+                width: 150px;
             }
         }
     </style>
@@ -287,67 +380,95 @@
 <body>
 
     <header>
-        <div class="header-left">
-            <span class="arrow">↑</span>
-            <div class="site-title">TEENZORA</div>
+        <div class="heading-box">
+            <h1><span class="teen">TEEN</span><span class="zora">ZORA</span></h1>
+            <p>Gadgets & Toys Shop</p>
         </div>
+
         <nav>
-            <a href="#home">Home</a>
-            <a href="#store">Store</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About Us</a>
+            <a href="#home" class="home">Home</a>
+            <a href="#store" class="store">Store</a>
+            <a href="#contact" class="contact">Contact Us</a>
+            <a href="#about" class="about">About Us</a>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <!-- Your latest clean photo as full background in hero -->
-        <img src="https://i.postimg.cc/FfzJp0P6/1-20251226-232459-0000.png" alt="Children enjoying educational toys - TEENZORA" class="hero-img">
-        
-        <div class="hero-content">
+        <img src="https://i.postimg.cc/FfzJp0P6/1-20251226-232459-0000.png" alt="Children playing with educational toys" class="hero-img">
+        <div class="hero-overlay"></div>
+
+        <div class="tagline-box">
             <h1>Upgrade your lifestyle with us</h1>
-            <p>A trusted online store for tech gadgets, educational toys and other</p>
-            <a href="https://wa.me/8801858677996" class="chat-btn">CHAT NOW</a>
-            <div class="contact-info">
-                <p>01858677996</p>
-                <p>Teenzoratech@gmail.com</p>
-                <p>Dhaka, Bangladesh</p>
+            <p>A trusted online store for tech gadgets, educational toys and others</p>
+        </div>
+
+        <a href="https://wa.me/8801858677996" class="chat-btn">CHAT NOW</a>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/8801858677996">01858677996</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:Teenzoratech@gmail.com">Teenzoratech@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Dhaka, Bangladesh</span>
             </div>
         </div>
     </section>
 
     <section id="store">
+        <!-- Sophisticated "Our Store" title -->
         <h2>Our Store</h2>
+
         <div class="products-grid">
-            <!-- Replace with your actual products -->
             <div class="product">
                 <img src="path/to/product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Amazing tech gadget or educational toy.</p>
-                <p><strong>Price: ৳XXXX</strong></p>
+                <h3>Educational Building Blocks</h3>
+                <p>Fun and creative learning toy for kids.</p>
+                <p><strong>Price: ৳2,500</strong></p>
+                <a href="https://wa.me/8801858677996?text=I'm%20interested%20in%20Educational%20Building%20Blocks" class="order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
             </div>
             <div class="product">
                 <img src="path/to/product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Amazing tech gadget or educational toy.</p>
-                <p><strong>Price: ৳XXXX</strong></p>
+                <h3>Smart Tech Gadget</h3>
+                <p>Innovative device for young explorers.</p>
+                <p><strong>Price: ৳4,800</strong></p>
+                <a href="https://wa.me/8801858677996?text=I'm%20interested%20in%20Smart%20Tech%20Gadget" class="order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
             </div>
             <div class="product">
                 <img src="path/to/product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Amazing tech gadget or educational toy.</p>
-                <p><strong>Price: ৳XXXX</strong></p>
+                <h3>Interactive Learning Kit</h3>
+                <p>Engaging educational experience.</p>
+                <p><strong>Price: ৳3,200</strong></p>
+                <a href="https://wa.me/8801858677996?text=I'm%20interested%20in%20Interactive%20Learning%20Kit" class="order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
             </div>
             <div class="product">
                 <img src="path/to/product4.jpg" alt="Product 4">
-                <h3>Product 4</h3>
-                <p>Amazing tech gadget or educational toy.</p>
-                <p><strong>Price: ৳XXXX</strong></p>
+                <h3>Remote Control Car</h3>
+                <p>Exciting toy for adventure play.</p>
+                <p><strong>Price: ৳2,900</strong></p>
+                <a href="https://wa.me/8801858677996?text=I'm%20interested%20in%20Remote%20Control%20Car" class="order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
             </div>
             <div class="product">
                 <img src="path/to/product5.jpg" alt="Product 5">
-                <h3>Product 5</h3>
-                <p>Amazing tech gadget or educational toy.</p>
-                <p><strong>Price: ৳XXXX</strong></p>
+                <h3>Science Experiment Set</h3>
+                <p>Spark curiosity with hands-on learning.</p>
+                <p><strong>Price: ৳3,800</strong></p>
+                <a href="https://wa.me/8801858677996?text=I'm%20interested%20in%20Science%20Experiment%20Set" class="order-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
             </div>
         </div>
     </section>
@@ -367,4 +488,4 @@
     </footer>
 
 </body>
-            </html>
+    </html>
