@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,179 +10,106 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #2d3a6b;
-            color: white;
-            line-height: 1.6;
+            background-color: #ffebcd; /* Light cream/beige background */
+            color: #333;
             min-height: 100vh;
         }
 
-        /* Header - Mobile First */
+        /* Header - Simple, no visible nav in original image, but keeping for functionality */
         header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 20px;
+            text-align: center;
+            background-color: #ffebcd;
         }
 
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .logo-top {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-arrow {
-            font-size: 2em;
-            color: #ffd700;
-        }
-
-        .logo-text {
-            font-size: 2.8em; /* Large on mobile */
+        .site-title {
+            font-size: 3em;
             font-weight: bold;
-            margin-left: 10px;
+            color: #007bff; /* Blue for TEENZORA */
         }
 
         nav {
+            margin-top: 20px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            width: 100%;
+            gap: 30px;
         }
 
         nav a {
+            color: #007bff;
             text-decoration: none;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
             font-weight: bold;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            min-width: 100px;
-            text-align: center;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 30px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        nav .home { background-color: #4CAF50; }
-        nav .home:hover { background-color: #45a049; }
+        nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
 
-        nav .store { background-color: #2196F3; }
-        nav .store:hover { background-color: #1e88e5; }
-
-        nav .contact { background-color: #f44336; }
-        nav .contact:hover { background-color: #e53935; }
-
-        nav .about { background-color: #FFC107; color: #000; }
-        nav .about:hover { background-color: #ffb300; }
-
-        /* Hero Section */
+        /* Hero Section - Full banner matching the new image */
         .hero {
-            text-align: center;
-            padding: 60px 20px 80px;
             position: relative;
+            width: 90%;
+            max-width: 1400px;
+            margin: 40px auto;
+            border: 15px solid #ffd700; /* Gold border */
+            border-radius: 40px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background-color: #007bff; /* Bright blue background */
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: -20%;
+        .hero-img {
             width: 100%;
-            height: 60%;
-            background-color: #fff3e0;
-            border-radius: 50%;
-            z-index: -1;
-            transform: translateY(-50%);
+            height: auto;
+            display: block;
         }
 
         .hero-logo {
-            width: 300px;
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            width: 350px;
             height: auto;
-            max-width: 90%;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin: 0 0 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.3em;
-            margin: 20px auto;
-            max-width: 90%;
-        }
-
-        .chat-btn {
-            background-color: #ffffff;
-            color: #2d3a6b;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 1.3em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 30px 0;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .chat-btn:hover {
-            background-color: #f0f0f0;
-        }
-
-        .contact-info {
-            text-align: center;
-            font-size: 1.1em;
-        }
-
-        .contact-info p {
-            margin: 10px 0;
-        }
-
-        .contact-info p::before {
-            content: '• ';
-            color: #ffd700;
+            border-radius: 50%;
+            border: 10px solid rgba(255,255,255,0.5);
+            background-color: rgba(255,251,230,0.9); /* Cream circle background */
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         /* Store Section */
         #store {
-            padding: 50px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: #ffebcd;
         }
 
         #store h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 60px;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            max-width: 400px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .product {
-            background-color: #ffffff;
-            color: #2d3a6b;
-            padding: 25px;
+            background-color: white;
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
 
@@ -191,119 +119,94 @@
 
         .product img {
             width: 100%;
-            height: auto;
             border-radius: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .product h3 {
-            margin: 15px 0 10px;
+            font-size: 1.8em;
+            color: #007bff;
+        }
+
+        /* Contact Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007bff;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
             font-size: 1.4em;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 100;
         }
 
-        .product p {
-            font-size: 1em;
-            margin: 8px 0;
-        }
-
-        /* Sections */
+        /* Other Sections */
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
         section h2 {
-            font-size: 2.3em;
-            margin-bottom: 20px;
+            font-size: 2.8em;
+            color: #007bff;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 20px;
-            background-color: rgba(0, 0, 0, 0.3);
-            font-size: 1em;
+            padding: 40px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1.1em;
         }
 
-        /* Desktop Adjustments */
-        @media (min-width: 768px) {
-            header {
-                flex-direction: row;
-                justify-content: space-between;
-                padding: 20px 50px;
-            }
-
-            .logo-container {
-                flex-direction: row;
-                margin-bottom: 0;
-                align-items: center;
-            }
-
-            .logo-top {
-                align-items: center;
-            }
-
-            .logo-text {
-                font-size: 3.5em;
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2.4em;
             }
 
             nav {
-                gap: 20px;
+                flex-direction: column;
+                gap: 15px;
             }
 
             nav a {
-                padding: 12px 30px;
                 font-size: 1.1em;
             }
 
             .hero {
-                padding: 100px 50px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                margin: 20px auto;
+                border-width: 10px;
+                border-radius: 30px;
             }
 
             .hero-logo {
-                width: 450px;
-                margin-bottom: 40px;
+                width: 200px;
+                right: 50%;
+                transform: translate(50%, -50%);
             }
 
-            .hero h1 {
-                font-size: 4.5em;
-            }
-
-            .hero p {
-                font-size: 1.6em;
-                max-width: 700px;
-            }
-
-            .hero::before {
-                width: 700px;
-                height: 600px;
-                right: 5%;
-                top: 50%;
-            }
-
-            .contact-info {
-                text-align: center;
-                font-size: 1.2em;
-                max-width: 700px;
+            #store h2 {
+                font-size: 2.5em;
             }
 
             .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                max-width: 1200px;
-                gap: 40px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 5em;
+                grid-template-columns: 1fr;
             }
 
-            .hero-logo {
-                width: 500px;
+            .chat-btn {
+                padding: 12px 30px;
+                font-size: 1.2em;
+            }
+
+            section h2 {
+                font-size: 2.2em;
             }
         }
     </style>
@@ -311,31 +214,21 @@
 <body>
 
     <header>
-        <div class="logo-container">
-            <div class="logo-top">
-                <span class="logo-arrow">↑</span>
-                <span class="logo-text">TEENZORA</span>
-            </div>
-        </div>
+        <div class="site-title">TEENZORA</div>
         <nav>
-            <a href="#home" class="home">Home</a>
-            <a href="#store" class="store">Store</a>
-            <a href="#contact" class="contact">Contact Us</a>
-            <a href="#about" class="about">About Us</a>
+            <a href="#home">Home</a>
+            <a href="#store">Store</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#about">About Us</a>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <!-- Your logo now placed inside the cream/white bubble area -->
+        <!-- Replace with your actual hero image URL if different; using placeholder for kids playing with toys -->
+        <img src="https://via.placeholder.com/1400x600/007bff/ffffff?text=Kids+Playing+with+Educational+Toys" alt="Kids playing with toys" class="hero-img">
+        
+        <!-- Your logo in the cream circle on the right -->
         <img src="https://i.postimg.cc/gJJgJyxh/TEe-N-20251226-010021-0000.jpg" alt="TEENZORA Logo" class="hero-logo">
-        <h1>Upgrade your lifestyle with us</h1>
-        <p>A trusted online store for tech gadgets, educational toys and other</p>
-        <a href="https://wa.me/8801858677996" class="chat-btn">CHAT NOW</a>
-        <div class="contact-info">
-            <p>01858677996</p>
-            <p>Teenzoratech@gmail.com</p>
-            <p>Dhaka, Bangladesh</p>
-        </div>
     </section>
 
     <section id="store">
@@ -377,18 +270,22 @@
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Reach us directly on WhatsApp:</p>
-        <a href="https://wa.me/8801858677996" style="font-size: 1.5em; color: #25D366; text-decoration: none;">01858677996</a>
+        <p>Phone: 01858677996</p>
+        <p>Email: Teenzoratech@gmail.com</p>
+        <p>Location: Dhaka, Bangladesh</p>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
-        <p>We are TEENZORA – your trusted online destination for the latest tech gadgets, educational toys, and lifestyle upgrades in Bangladesh.</p>
+        <p>We are TEENZORA – your trusted online store for tech gadgets, educational toys, and more in Bangladesh.</p>
     </section>
 
     <footer>
         <p>&copy; 2025 TEENZORA. All rights reserved. | Dhaka, Bangladesh</p>
     </footer>
+
+    <!-- Fixed Chat Now button -->
+    <a href="https://wa.me/8801858677996" class="chat-btn">CHAT NOW</a>
 
 </body>
     </html>
