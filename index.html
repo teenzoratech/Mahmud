@@ -17,12 +17,81 @@
         }
 
         header {
-            padding: 30px 80px; /* Increased horizontal padding for wider feel */
+            padding: 30px 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1800px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        /* Hamburger Menu Icon - Top left corner (visible on all devices, but mainly for mobile) */
+        .hamburger {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 2.8em;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+            transition: color 0.3s;
+        }
+
+        .hamburger:hover {
+            color: #ffd700;
+        }
+
+        /* Dropdown menu (slides down from top-left) */
+        .dropdown-menu {
+            position: absolute;
+            top: 90px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 999;
+            min-width: 220px;
+        }
+
+        .dropdown-menu.active {
+            display: flex;
+        }
+
+        .dropdown-menu a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.4em;
+            padding: 18px 40px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            width: 170px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .dropdown-menu a i {
+            font-size: 2em;
+        }
+
+        .dropdown-menu a.home { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .dropdown-menu a.store { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .dropdown-menu a.contact { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .dropdown-menu a.about { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+
+        .dropdown-menu a:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .heading-box {
@@ -95,11 +164,10 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        /* Hero section - wider and shorter */
         .hero {
             position: relative;
-            padding: 60px 80px 60px; /* Reduced vertical padding, increased horizontal */
-            min-height: 45vh; /* Significantly reduced height */
+            padding: 60px 80px 60px;
+            min-height: 45vh;
             max-width: 1800px;
             margin: 0 auto;
             display: flex;
@@ -182,7 +250,7 @@
             border-radius: 40px;
             border: 3px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 1200px; /* Wider */
+            max-width: 1200px;
             text-align: center;
             margin: 80px auto;
         }
@@ -204,7 +272,7 @@
         }
 
         #store {
-            padding: 120px 80px 100px; /* Wider padding */
+            padding: 120px 80px 100px;
             text-align: center;
             max-width: 1800px;
             margin: 0 auto;
@@ -236,7 +304,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Wider cards */
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 60px;
             max-width: 1800px;
             margin: 0 auto;
@@ -431,6 +499,31 @@
 </head>
 <body>
 
+    <!-- Hamburger Menu Icon (three horizontal lines) in top left corner -->
+    <div class="hamburger" onclick="toggleDropdown()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Dropdown menu with the exact same four buttons as in header nav -->
+    <div class="dropdown-menu">
+        <a href="#home" class="home">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="#store" class="store">
+            <i class="fas fa-store"></i>
+            Store
+        </a>
+        <a href="#contact" class="contact">
+            <i class="fas fa-phone"></i>
+            Contact Us
+        </a>
+        <a href="#about" class="about">
+            <i class="fas fa-info-circle"></i>
+            About Us
+        </a>
+    </div>
+
     <header>
         <div class="heading-box">
             <h1><span class="teen">TEEN</span><span class="zora">ZORA</span></h1>
@@ -550,5 +643,20 @@
         <p>&copy; 2025 TEENZORA. All rights reserved. | Dhaka, Bangladesh</p>
     </footer>
 
+    <script>
+        function toggleDropdown() {
+            document.querySelector('.dropdown-menu').classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const hamburger = document.querySelector('.hamburger');
+            const dropdown = document.querySelector('.dropdown-menu');
+            if (!hamburger.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
+
 </body>
-    </html>
+            </html>
