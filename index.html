@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
         }
 
         header {
-            padding: 30px 60px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -25,15 +26,15 @@
 
         .heading-box {
             background: linear-gradient(135deg, #f6f6f6, #e0e0e0);
-            padding: 35px 60px;
-            border-radius: 30px;
+            padding: 25px 40px;
+            border-radius: 25px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .heading-box h1 {
             margin: 0;
-            font-size: 80px;
+            font-size: 60px;
             font-weight: 900;
             line-height: 1;
         }
@@ -46,33 +47,41 @@
             color: #f6b300;
             display: inline-block;
             position: relative;
-            top: 15px;
-            font-size: 88px;
+            top: 10px;
+            font-size: 66px;
         }
 
         .heading-box p {
-            margin: 20px 0 0;
-            font-size: 22px;
+            margin: 15px 0 0;
+            font-size: 18px;
             font-weight: 600;
             color: #333;
         }
 
         nav {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         nav a {
             color: #000000;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.4em;
-            padding: 18px 40px;
-            border-radius: 20px;
+            font-size: 1.2em;
+            padding: 15px 25px;
+            border-radius: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            width: 160px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            width: 150px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a i {
+            font-size: 1.8em;
         }
 
         nav a.home { background: linear-gradient(135deg, #4facfe, #00f2fe); }
@@ -81,14 +90,15 @@
         nav a.about { background: linear-gradient(135deg, #a8edea, #fed6e3); }
 
         nav a:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
 
+        /* Smaller hero section for better balance */
         .hero {
             position: relative;
-            padding: 140px 60px 120px;
-            min-height: 90vh;
+            padding: 60px 40px;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -104,7 +114,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
-            opacity: 0.85;
+            opacity: 0.7;
         }
 
         .hero-overlay {
@@ -113,70 +123,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(30,58,138,0.8), rgba(76,29,149,0.6));
+            background: linear-gradient(to bottom, rgba(30,58,138,0.85), rgba(76,29,149,0.65));
             z-index: -1;
-        }
-
-        .tagline-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            padding: 60px 100px;
-            border-radius: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 1000px;
-            margin-bottom: 60px;
-        }
-
-        .tagline-box h1 {
-            font-size: 5.5em;
-            margin: 0 0 40px;
-            line-height: 1.2;
-            text-shadow: 4px 4px 12px rgba(0,0,0,0.6);
-            font-weight: 900;
-        }
-
-        .tagline-box p {
-            font-size: 2.3em;
-            margin: 0;
-            line-height: 1.5;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
-            font-weight: 500;
         }
 
         .chat-btn {
             background-color: white;
             color: #1e3a8a;
-            padding: 25px 80px;
-            border-radius: 60px;
-            font-size: 2em;
+            padding: 16px 50px;
+            border-radius: 50px;
+            font-size: 1.6em;
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             transition: transform 0.3s;
         }
 
         .chat-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .contact-info {
-            margin-top: 100px;
-            font-size: 1.6em;
+            margin-top: 40px;
+            font-size: 1.3em;
             display: flex;
             flex-direction: row;
-            gap: 80px;
+            gap: 40px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
         }
 
         .contact-item i {
-            font-size: 2.2em;
+            font-size: 1.6em;
             color: #ffd700;
         }
 
@@ -189,215 +172,247 @@
             color: #ffd700;
         }
 
+        .lifestyle-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 40px 60px;
+            border-radius: 35px;
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            max-width: 800px;
+            text-align: center;
+            margin: 60px auto;
+        }
+
+        .lifestyle-box h1 {
+            font-size: 3.5em;
+            margin: 0 0 20px;
+            line-height: 1.2;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+            font-weight: 900;
+        }
+
+        .lifestyle-box p {
+            font-size: 1.6em;
+            margin: 0;
+            line-height: 1.5;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+            font-weight: 500;
+        }
+
         #store {
-            padding: 140px 60px 100px;
+            padding: 100px 40px 80px;
             text-align: center;
         }
 
         #store h2 {
-            font-size: 5em;
+            font-size: 4.2em;
             font-weight: 900;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
             background: linear-gradient(to right, #ffd700, #ff6b00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
             position: relative;
         }
 
         #store h2::after {
             content: '';
             position: absolute;
-            bottom: -30px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 300px;
-            height: 6px;
+            width: 250px;
+            height: 5px;
             background: linear-gradient(to right, transparent, #ffd700, transparent);
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 60px;
-            max-width: 1600px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .product {
             background-color: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(15px);
-            padding: 45px;
-            border-radius: 30px;
+            padding: 40px;
+            border-radius: 25px;
             transition: transform 0.4s;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
         }
 
         .product:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
         .product img {
             width: 100%;
-            border-radius: 20px;
-            margin-bottom: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
         }
 
         .product h3 {
-            font-size: 2.2em;
-            margin: 25px 0 15px;
+            font-size: 2em;
+            margin: 20px 0 10px;
         }
 
         .product p {
-            font-size: 1.4em;
-            margin: 15px 0;
+            font-size: 1.3em;
+            margin: 10px 0;
         }
 
         .order-btn {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 20px;
             background-color: #25D366;
             color: white;
-            padding: 16px 40px;
+            padding: 14px 35px;
             border-radius: 50px;
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 8px 20px rgba(37,211,102,0.5);
+            box-shadow: 0 6px 15px rgba(37,211,102,0.5);
             transition: all 0.3s;
         }
 
         .order-btn i {
-            margin-right: 12px;
+            margin-right: 10px;
         }
 
         .order-btn:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
             background-color: #128C7E;
-            box-shadow: 0 15px 35px rgba(37,211,102,0.7);
+            box-shadow: 0 12px 30px rgba(37,211,102,0.7);
         }
 
         section {
-            padding: 100px 60px;
+            padding: 80px 40px;
             text-align: center;
         }
 
         section h2 {
-            font-size: 3.5em;
-            margin-bottom: 50px;
+            font-size: 3.2em;
+            margin-bottom: 40px;
         }
 
         footer {
             text-align: center;
-            padding: 70px;
+            padding: 60px;
             background-color: rgba(0,0,0,0.4);
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
 
-        /* Mobile Optimization - Keeps beauty but adjusts for small screens */
+        /* Mobile Optimization - Perfect for small screens */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
-                padding: 20px;
+                padding: 15px 20px;
             }
 
             .heading-box {
-                padding: 25px 20px;
+                padding: 20px 15px;
             }
 
             .heading-box h1 {
-                font-size: 50px;
+                font-size: 42px;
             }
 
             .zora {
-                font-size: 55px;
-                top: 8px;
+                font-size: 46px;
+                top: 6px;
             }
 
             .heading-box p {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
-                margin-top: 30px;
+                gap: 12px;
+                margin-top: 20px;
             }
 
             nav a {
-                width: 130px;
-                font-size: 1.2em;
-                padding: 14px 25px;
+                width: 110px;
+                font-size: 1em;
+                padding: 12px 15px;
+                flex-direction: row;
+                gap: 6px;
+            }
+
+            nav a i {
+                font-size: 1.4em;
             }
 
             .hero {
-                padding: 80px 20px;
-            }
-
-            .tagline-box {
-                padding: 40px 30px;
-            }
-
-            .tagline-box h1 {
-                font-size: 3.2em;
-            }
-
-            .tagline-box p {
-                font-size: 1.6em;
+                padding: 50px 20px;
+                min-height: 45vh;
             }
 
             .chat-btn {
-                padding: 18px 50px;
-                font-size: 1.6em;
+                padding: 14px 40px;
+                font-size: 1.4em;
             }
 
             .contact-info {
                 flex-direction: column;
-                gap: 30px;
-                font-size: 1.3em;
-            }
-
-            .contact-item {
-                justify-content: center;
+                gap: 20px;
+                font-size: 1.1em;
             }
 
             .contact-item i {
-                font-size: 1.8em;
+                font-size: 1.4em;
+            }
+
+            .lifestyle-box {
+                padding: 30px 20px;
+                margin: 50px auto;
+            }
+
+            .lifestyle-box h1 {
+                font-size: 2.5em;
+            }
+
+            .lifestyle-box p {
+                font-size: 1.3em;
             }
 
             #store {
-                padding: 80px 20px;
+                padding: 70px 20px;
             }
 
             #store h2 {
-                font-size: 3.8em;
+                font-size: 3.2em;
             }
 
             #store h2::after {
-                width: 200px;
+                width: 180px;
             }
 
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 35px;
             }
 
             .product {
-                padding: 30px;
+                padding: 25px;
             }
 
             .product h3 {
-                font-size: 1.8em;
+                font-size: 1.7em;
             }
 
             .order-btn {
-                padding: 14px 35px;
-                font-size: 1.3em;
+                padding: 12px 30px;
+                font-size: 1.2em;
             }
         }
     </style>
@@ -411,21 +426,28 @@
         </div>
 
         <nav>
-            <a href="#home" class="home">Home</a>
-            <a href="#store" class="store">Store</a>
-            <a href="#contact" class="contact">Contact Us</a>
-            <a href="#about" class="about">About Us</a>
+            <a href="#home" class="home">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <a href="#store" class="store">
+                <i class="fas fa-store"></i>
+                Store
+            </a>
+            <a href="#contact" class="contact">
+                <i class="fas fa-phone"></i>
+                Contact Us
+            </a>
+            <a href="#about" class="about">
+                <i class="fas fa-info-circle"></i>
+                About Us
+            </a>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <img src="https://i.postimg.cc/FfzJp0P6/1-20251226-232459-0000.png" alt="Children playing with educational toys" class="hero-img">
         <div class="hero-overlay"></div>
-
-        <div class="tagline-box">
-            <h1>Upgrade your lifestyle with us</h1>
-            <p>A trusted online store for tech gadgets, educational toys and others</p>
-        </div>
 
         <a href="https://wa.me/8801858677996" class="chat-btn">CHAT NOW</a>
 
@@ -497,9 +519,14 @@
         </div>
     </section>
 
+    <div class="lifestyle-box">
+        <h1>Upgrade your lifestyle with us</h1>
+        <p>A trusted online store for tech gadgets, educational toys and others</p>
+    </div>
+
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Reach us directly on WhatsApp: <a href="https://wa.me/8801858677996" style="color: #ffd700; font-size: 2em; text-decoration: none;">01858677996</a></p>
+        <p>Reach us directly on WhatsApp: <a href="https://wa.me/8801858677996" style="color: #ffd700; font-size: 1.8em; text-decoration: none;">01858677996</a></p>
     </section>
 
     <section id="about">
