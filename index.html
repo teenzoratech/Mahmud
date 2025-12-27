@@ -26,11 +26,11 @@
             position: relative;
         }
 
-        /* Hamburger Menu Icon - Left side, aligned with layout */
+        /* Hamburger Menu Icon - Right side, aligned with layout */
         .hamburger {
             position: fixed;
             top: 40px;
-            left: 40px;
+            right: 40px;
             font-size: 2.6em;
             color: white;
             cursor: pointer;
@@ -42,17 +42,19 @@
             color: #ffd700;
         }
 
-        /* Side drawer - small portion, full height on desktop */
+        /* Side drawer from the right - occupies slightly less than half the screen */
         .side-drawer {
             position: fixed;
             top: 0;
-            left: -360px;
-            width: 360px;
-            height: 100vh;
+            right: -45vw; /* Hidden off-screen */
+            width: 45vw; /* Slightly less than half */
+            min-width: 350px;
+            max-width: 500px;
+            height: 100vh; /* Full height on desktop */
             background: rgba(30, 58, 138, 0.95);
             backdrop-filter: blur(15px);
-            box-shadow: 15px 0 40px rgba(0,0,0,0.5);
-            transition: left 0.4s ease;
+            box-shadow: -15px 0 40px rgba(0,0,0,0.5);
+            transition: right 0.4s ease;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -60,7 +62,7 @@
         }
 
         .side-drawer.active {
-            left: 0;
+            right: 0;
         }
 
         .side-drawer a {
@@ -72,7 +74,7 @@
             border-radius: 20px;
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            width: 240px;
+            width: 260px;
             margin: 15px auto;
             text-align: center;
             display: flex;
@@ -394,19 +396,21 @@
 
             .hamburger {
                 top: 20px;
-                left: 20px;
+                right: 20px;
                 font-size: 2.4em;
             }
 
             .side-drawer {
-                width: 280px;
+                width: 80vw; /* Larger on mobile for usability */
+                min-width: 280px;
+                right: -80vw;
                 padding-top: 100px;
             }
 
             .side-drawer a {
                 font-size: 1.3em;
                 padding: 16px 30px;
-                width: 200px;
+                width: 220px;
             }
 
             .heading-box {
@@ -517,12 +521,12 @@
 </head>
 <body>
 
-    <!-- Hamburger Menu Icon (three horizontal lines) on the left side -->
+    <!-- Hamburger Menu Icon (three horizontal lines) on the right side -->
     <div class="hamburger" onclick="toggleDrawer()">
         <i class="fas fa-bars"></i>
     </div>
 
-    <!-- Side drawer - small portion of screen, full height on desktop -->
+    <!-- Side drawer from the right - occupies slightly less than half the screen -->
     <div class="side-drawer">
         <a href="#home" class="home">
             <i class="fas fa-home"></i>
@@ -666,7 +670,7 @@
             document.querySelector('.side-drawer').classList.toggle('active');
         }
 
-        // Close drawer when clicking outside the drawer
+        // Close drawer when clicking outside
         document.addEventListener('click', function(event) {
             const hamburger = document.querySelector('.hamburger');
             const sideDrawer = document.querySelector('.side-drawer');
