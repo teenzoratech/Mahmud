@@ -26,15 +26,15 @@
             position: relative;
         }
 
-        /* Hamburger Menu Icon - Top left corner (visible on all devices, but mainly for mobile) */
+        /* Hamburger Menu Icon - Left side, aligned with layout */
         .hamburger {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            font-size: 2.8em;
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            font-size: 2.6em;
             color: white;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 1001;
             transition: color 0.3s;
         }
 
@@ -42,27 +42,28 @@
             color: #ffd700;
         }
 
-        /* Dropdown menu (slides down from top-left) */
-        .dropdown-menu {
-            position: absolute;
-            top: 90px;
-            left: 30px;
-            background: rgba(255, 255, 255, 0.15);
+        /* Side drawer - small portion, full height on desktop */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            left: -360px;
+            width: 360px;
+            height: 100vh;
+            background: rgba(30, 58, 138, 0.95);
             backdrop-filter: blur(15px);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: none;
-            flex-direction: column;
-            padding: 20px;
-            z-index: 999;
-            min-width: 220px;
-        }
-
-        .dropdown-menu.active {
+            box-shadow: 15px 0 40px rgba(0,0,0,0.5);
+            transition: left 0.4s ease;
+            z-index: 1000;
             display: flex;
+            flex-direction: column;
+            padding-top: 140px;
         }
 
-        .dropdown-menu a {
+        .side-drawer.active {
+            left: 0;
+        }
+
+        .side-drawer a {
             color: #000000;
             text-decoration: none;
             font-weight: bold;
@@ -71,25 +72,25 @@
             border-radius: 20px;
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            width: 170px;
+            width: 240px;
+            margin: 15px auto;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            margin: 10px 0;
         }
 
-        .dropdown-menu a i {
+        .side-drawer a i {
             font-size: 2em;
         }
 
-        .dropdown-menu a.home { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-        .dropdown-menu a.store { background: linear-gradient(135deg, #43e97b, #38f9d7); }
-        .dropdown-menu a.contact { background: linear-gradient(135deg, #fa709a, #fee140); }
-        .dropdown-menu a.about { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+        .side-drawer a.home { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .side-drawer a.store { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .side-drawer a.contact { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .side-drawer a.about { background: linear-gradient(135deg, #a8edea, #fed6e3); }
 
-        .dropdown-menu a:hover {
+        .side-drawer a:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
@@ -391,6 +392,23 @@
                 padding: 20px;
             }
 
+            .hamburger {
+                top: 20px;
+                left: 20px;
+                font-size: 2.4em;
+            }
+
+            .side-drawer {
+                width: 280px;
+                padding-top: 100px;
+            }
+
+            .side-drawer a {
+                font-size: 1.3em;
+                padding: 16px 30px;
+                width: 200px;
+            }
+
             .heading-box {
                 padding: 25px 20px;
             }
@@ -499,13 +517,13 @@
 </head>
 <body>
 
-    <!-- Hamburger Menu Icon (three horizontal lines) in top left corner -->
-    <div class="hamburger" onclick="toggleDropdown()">
+    <!-- Hamburger Menu Icon (three horizontal lines) on the left side -->
+    <div class="hamburger" onclick="toggleDrawer()">
         <i class="fas fa-bars"></i>
     </div>
 
-    <!-- Dropdown menu with the exact same four buttons as in header nav -->
-    <div class="dropdown-menu">
+    <!-- Side drawer - small portion of screen, full height on desktop -->
+    <div class="side-drawer">
         <a href="#home" class="home">
             <i class="fas fa-home"></i>
             Home
@@ -644,19 +662,19 @@
     </footer>
 
     <script>
-        function toggleDropdown() {
-            document.querySelector('.dropdown-menu').classList.toggle('active');
+        function toggleDrawer() {
+            document.querySelector('.side-drawer').classList.toggle('active');
         }
 
-        // Close dropdown when clicking outside
+        // Close drawer when clicking outside the drawer
         document.addEventListener('click', function(event) {
             const hamburger = document.querySelector('.hamburger');
-            const dropdown = document.querySelector('.dropdown-menu');
-            if (!hamburger.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.classList.remove('active');
+            const sideDrawer = document.querySelector('.side-drawer');
+            if (!hamburger.contains(event.target) && !sideDrawer.contains(event.target)) {
+                sideDrawer.classList.remove('active');
             }
         });
     </script>
 
 </body>
-            </html>
+    </html>
